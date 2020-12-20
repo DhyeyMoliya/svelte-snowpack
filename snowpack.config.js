@@ -5,9 +5,14 @@ module.exports = {
   },
   plugins: [
     /* ... */
+    '@snowpack/plugin-svelte',
+    '@snowpack/plugin-typescript'
   ],
   install: [
     /* ... */
+    'svelte',
+    '@popperjs/core',
+    'bootstrap',
   ],
   installOptions: {
     /* ... */
@@ -23,5 +28,7 @@ module.exports = {
   },
   alias: {
     /* ... */
+    "$components": "./src/components",
+    "$stores": "./src/stores"
   },
 };
