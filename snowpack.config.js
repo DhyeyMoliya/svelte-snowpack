@@ -29,6 +29,7 @@ module.exports = {
   alias: {
     /* ... */
     "$components": "./src/components",
-    "$stores": "./src/stores"
+    "$stores": "./src/stores",
+    "$helpers": "./src/helpers"
   },
 };

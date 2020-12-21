@@ -24,6 +24,9 @@
 			"$stores/*": [
 				"./src/stores/*"
 			],
+			"$helpers/*": [
+				"./src/helpers/*"
+			],
 		},
 		/* Custom Rules start */
 		"resolveJsonModule": true

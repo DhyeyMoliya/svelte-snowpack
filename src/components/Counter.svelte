@@ -1,22 +1,26 @@
 <script lang="ts">
+    import { Subscription } from "$helpers/subscription";
+
     import { count } from "$stores/counter";
     import { onDestroy } from "svelte";
 
-    const unsubscribe = count.subscribe(console.log);
+    const subscription = new Subscription(count.subscribe(console.log));
     (async () => {
-        const res = await fetch("http://localhost:4000/api/todos");
-        console.log("Res :", res);
+        const res = await fetch(
+            "https://jsonplaceholder.typicode.com/todos?_limit=10"
+        );
         if (res?.ok) {
             const todos = await res.json();
             console.log(todos);
         }
     })();
-    onDestroy(unsubscribe);
+    onDestroy(() => subscription.unsubscribe());
 </script>
 
 <style lang="scss">
     main {
-        padding: 1rem;
+        // padding: 1rem;
+        margin-bottom: 1rem;
     }
 </style>
 
