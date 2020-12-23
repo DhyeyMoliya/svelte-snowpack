@@ -33,4 +33,8 @@ module.exports = {
     "$stores": "./src/stores",
     "$helpers": "./src/helpers"
   },
+  experiments: {
+    optimize: true,
+    // source: "skypack",
+  }
 };
