@@ -1,42 +1,28 @@
-type TooltipOptions = {
-    title: string,
-    placement?: string,
-    boundary?: string,
-    customClass?: string,
-    trigger?: string,
-};
+type TooltipOptions = { title: string, placement?: string, boundary?: string, customClass?: string, trigger?: string, };
 
-const defaultOptions = {
-    title: '',
-    placement: 'bottom',
-    trigger: 'hover focus'
-};
+const defaultOptions = { title: '', placement: 'bottom', trigger: 'hover focus' };
 
 const initTooltip = (node, options: TooltipOptions) => {
-    return bootstrap?.Tooltip ? new bootstrap.Tooltip(node, options) : undefined;
+    options = { ...defaultOptions, ...options };
+    if (bootstrap?.Tooltip) {
+        return new bootstrap.Tooltip(node, options)
+    }
+    return undefined;
 }
 
 export function tooltip(node, options: TooltipOptions) {
-    options = { ...defaultOptions, ...options };
-    initTooltip(node, options);
+    let tt = initTooltip(node, options);
 
     return {
         update(options: TooltipOptions) {
-            if (bootstrap?.Tooltip) {
-                const tt = bootstrap?.Tooltip?.getInstance(node);
-                if (tt) {
-                    tt.hide();
-                }
+            if (tt) {
+                tt.hide();
             }
-            options = { ...defaultOptions, ...options };
-            initTooltip(node, options);
+            tt = initTooltip(node, options);
         },
         destroy() {
-            if (bootstrap?.Tooltip) {
-                const tt = bootstrap?.Tooltip?.getInstance(node);
-                if (tt?.tip?.parentNode) {
-                    tt.dispose();
-                }
+            if (tt?.tip?.parentNode) {
+                tt.dispose();
             }
         }
     };
