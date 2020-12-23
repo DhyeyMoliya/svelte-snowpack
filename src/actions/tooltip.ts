@@ -15,15 +15,11 @@ export function tooltip(node, options: TooltipOptions) {
 
     return {
         update(options: TooltipOptions) {
-            if (tt) {
-                tt.hide();
-            }
+            if (tt) { tt.hide(); }
             tt = initTooltip(node, options);
         },
         destroy() {
-            if (tt?.tip?.parentNode) {
-                tt.dispose();
-            }
+            if (tt?.tip?.parentNode) { tt.dispose(); }
         }
     };
 }
