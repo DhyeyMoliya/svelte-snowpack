@@ -4,7 +4,7 @@
     let hide = false;
 </script>
 
-<style>
+<style lang="scss">
     .App {
         padding: 1rem;
     }

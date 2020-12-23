@@ -2,17 +2,18 @@
 module.exports = {
   mount: {
     /* ... */
+    public: { url: '/', static: true },
+    src: { url: '/dist' },
   },
   plugins: [
     /* ... */
     '@snowpack/plugin-svelte',
-    '@snowpack/plugin-typescript'
+    '@snowpack/plugin-typescript',
+    '@snowpack/plugin-sass'
   ],
   install: [
     /* ... */
     'svelte',
-    '@popperjs/core',
-    'bootstrap',
   ],
   installOptions: {
     /* ... */
