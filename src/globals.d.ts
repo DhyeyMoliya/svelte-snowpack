@@ -52,4 +52,6 @@ declare module "*.webp" {
 	export = value;
 }
 
+declare var bootstrap
+
 //#endregion

@@ -27,6 +27,9 @@
 			"$helpers/*": [
 				"./src/helpers/*"
 			],
+			"$actions/*": [
+				"./src/actions/*"
+			],
 		},
 		/* Custom Rules start */
 		"resolveJsonModule": true

@@ -20,14 +20,14 @@
 
 <svelte:options />
 <main>
-  <button
-    data-bs-toggle="tooltip"
-    title="Tooltip on top"
-    class="btn btn-outline-primary"
-    on:click={() => ($count = $count + 1)}>
-    {text}
-  </button>
-  <p>Clicked : {$count} times</p>
+  <div class="d-flex flex-row align-items-center">
+    <button
+      class="btn btn-outline-primary rounded-pill"
+      on:click={() => ($count = $count + 1)}>
+      {text}
+    </button>
+    <p class="ms-2 m-0">Clicked : {$count} times</p>
+  </div>
 </main>
 
 <style lang="scss">

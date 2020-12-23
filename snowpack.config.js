@@ -31,10 +31,11 @@ module.exports = {
     /* ... */
     "$components": "./src/components",
     "$stores": "./src/stores",
-    "$helpers": "./src/helpers"
+    "$helpers": "./src/helpers",
+    "$actions": "./src/actions",
   },
   experiments: {
-    optimize: true,
+    // optimize: true,
     // source: "skypack",
   }
 };
