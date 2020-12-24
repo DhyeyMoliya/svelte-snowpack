@@ -9,6 +9,7 @@
     duration: 400,
     easing: cubicOut,
   });
+
   count.subscribe((val) => progress.set(val));
   let tooltipTitle = "Reset";
   setTimeout(() => (tooltipTitle += " Counter Value"), 3000);
@@ -16,12 +17,27 @@
 
 <div class="App">
   <Counter text="Click me!" />
-  <div class="d-flex flex-row align-items-center">
-    <button
-      class="btn btn-outline-dark rounded-pill"
-      on:click={() => count.set(0)}
-      use:tooltip={{ title: tooltipTitle }}>Reset</button>
-    <p class="ms-2 m-0">Counter Value : {Math.round($progress)}</p>
+  <div class="row gx-3 align-items-center">
+    <div class="col-auto">
+      <button
+        class="btn btn-outline-dark rounded-pill"
+        on:click={() => count.set(0)}
+        use:tooltip={{ title: tooltipTitle, disabled: $count <= 0 }}
+        disabled={$count <= 0}>Reset</button>
+    </div>
+    <div class="col-auto">
+      <span>Counter Value : {Math.round($progress)}</span>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-auto">
+      <label for="tooltipTitle">Tooltip Title</label>
+      <input
+        name="tooltipTitle"
+        class="form-control"
+        type="text"
+        bind:value={tooltipTitle} />
+    </div>
   </div>
 </div>
 

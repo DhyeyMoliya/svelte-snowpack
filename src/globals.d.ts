@@ -51,7 +51,12 @@ declare module "*.webp" {
 	const value: string;
 	export = value;
 }
+//#endregion
 
-declare var bootstrap
+//#region Bootstrap Declarations
+declare module bootstrap {
+	export const Tooltip: any;
+	export type TooltipOptions = { title: string, placement?: string, boundary?: string, customClass?: string, trigger?: string, disabled?: boolean };
+}
 
 //#endregion
