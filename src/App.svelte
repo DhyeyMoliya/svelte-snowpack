@@ -5,14 +5,10 @@
   import { cubicOut } from "svelte/easing";
   import { tooltip } from "$actions/tooltip";
 
-  const progress = tweened(0, {
-    duration: 400,
-    easing: cubicOut,
-  });
+  const progress = tweened(0, { duration: 400, easing: cubicOut });
+  count.subscribe(progress.set);
 
-  count.subscribe((val) => progress.set(val));
-  let tooltipTitle = "Reset";
-  setTimeout(() => (tooltipTitle += " Counter Value"), 3000);
+  $: tooltipTitle = `Reset Value from ${$count} to 0`;
 </script>
 
 <div class="App">
