@@ -18,7 +18,6 @@
   onDestroy(() => subscription.unsubscribe());
 </script>
 
-<svelte:options />
 <main>
   <div class="d-flex flex-row align-items-center">
     <button

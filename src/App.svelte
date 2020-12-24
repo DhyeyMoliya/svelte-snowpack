@@ -5,14 +5,17 @@
   import { cubicOut } from "svelte/easing";
   import { tooltip } from "$actions/tooltip";
 
-  const progress = tweened(0, { duration: 400, easing: cubicOut });
+  const progress = tweened(0, { duration: 500, easing: cubicOut });
   count.subscribe(progress.set);
 
   $: tooltipTitle = `Reset Value from ${$count} to 0`;
+
+  const counterValueChange = (ev) =>
+    count.set(+(ev.target as HTMLInputElement).value);
 </script>
 
 <div class="App">
-  <Counter text="Click me!" />
+  <Counter text="Click Me!" />
   <div class="row gx-3 align-items-center">
     <div class="col-auto">
       <button
@@ -33,6 +36,15 @@
         class="form-control"
         type="text"
         bind:value={tooltipTitle} />
+    </div>
+    <div class="col-auto">
+      <label for="tooltipTitle">Counter Value</label>
+      <input
+        name="tooltipTitle"
+        class="form-control"
+        type="number"
+        value={$count}
+        on:keyup={counterValueChange} />
     </div>
   </div>
 </div>
