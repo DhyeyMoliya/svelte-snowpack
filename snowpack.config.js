@@ -13,7 +13,6 @@ module.exports = {
   ],
   install: [
     /* ... */
-    'svelte',
   ],
   installOptions: {
     /* ... */
@@ -24,6 +23,7 @@ module.exports = {
   },
   buildOptions: {
     /* ... */
+    clean: true,
   },
   proxy: {
     /* ... */

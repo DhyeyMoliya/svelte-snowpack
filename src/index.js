@@ -1,6 +1,6 @@
 import App from "./App.svelte";
-import * as bootstrap from 'bootstrap';
 import * as Popper from '@popperjs/core';
+import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
 window.Popper = Popper;
 
