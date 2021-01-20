@@ -23,6 +23,7 @@
     <button
       class="btn btn-outline-primary rounded-pill"
       on:click={() => ($count = $count + 1)}>
+      <i class="bi-hand-index-thumb"></i>
       {text}
     </button>
     <p class="ms-2 m-0">Clicked : {$count} times</p>

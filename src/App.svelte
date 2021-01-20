@@ -22,7 +22,10 @@
         class="btn btn-outline-dark rounded-pill"
         on:click={() => count.set(0)}
         use:tooltip={{ title: tooltipTitle, disabled: $count <= 0 }}
-        disabled={$count <= 0}>Reset</button>
+        disabled={$count <= 0}>
+        <i class="bi-arrow-counterclockwise"></i>
+        Reset
+      </button>
     </div>
     <div class="col-auto">
       <span>Counter Value : {Math.round($progress)}</span>
@@ -34,6 +37,7 @@
       <input
         name="tooltipTitle"
         class="form-control"
+        style="min-width: 300px"
         type="text"
         bind:value={tooltipTitle} />
     </div>
