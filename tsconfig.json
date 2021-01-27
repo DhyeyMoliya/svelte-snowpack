@@ -22,6 +22,9 @@
 			"$actions/*": [
 				"./src/actions/*"
 			],
+			"$pages/*": [
+				"./src/pages/*"
+			],
 			"*": [
 				".snowpack/types/*"
 			]
